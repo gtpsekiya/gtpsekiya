@@ -14,9 +14,13 @@ export default async function handler(req, res) {
 
     try {
         const response = await openai.chat.completions.create({
-            model: "gpt-4",
-            messages: [{ role: "system", content: "You are an AI assistant." }, { role: "user", content: message }],
-        });
+    model: "gpt-4.5",
+    messages: [
+        { role: "system", content: "You are an AI assistant." },
+        { role: "user", content: message }
+    ],
+});
+
 
         res.status(200).json({ reply: response.choices[0].message.content });
     } catch (error) {
